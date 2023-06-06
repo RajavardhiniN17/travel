@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>login</title>
+    <style>
+        *{
+    padding: 0px;
+    margin:0px;
+}
+body{
+    width:95%;
+    height:95vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-image: linear-gradient(75deg,#D4145A,#FBB03B);
+}
+#login,#signup{
+    width:55%;
+    height:70vh;
+    background-color: bisque;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px black;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+    justify-content: space-evenly;
+    padding-top: 20px;
+}
+#login{
+    flex-direction: column;
+    background-color: transparent;
+    box-shadow: none;
+    height: 40vh;
+}
+h1{
+    font-size: 50px;
+    letter-spacing: 30px;
+    color:white;
+    text-shadow: 2px 2px 5px black;
+}
+p{
+    font-size: 24px;
+}
+#loginButton,#signupbutton{
+    width:180px;
+    border:none;
+    height:40px;
+    background-color: bisque;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px black;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    cursor: pointer;
+}
+#loginButton:hover,#signupbutton:hover{
+    background-color: olivedrab;
+    color:whitesmoke;
+}
+input{
+    width:40%;
+    height:20px;
+    border:2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 18px;
+    box-shadow: 2px 2px 2px black;
+    outline: none;
+   
+}
+.inputBox{
+    width:88%;
+}
+#dob{
+    height:80px;
+    position: relative;
+    top:20px;
+    right:30px;
+    width:80%;
+}
+select{
+    width:100px;
+    height:30px;
+    border:2px solid black;
+    border-radius: 5px;
+  background-color: darkorchid;
+  color:white;
+    font-size: 18px;
+}
+
+#selectTags{
+    width:130%;
+    height:40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    right:40px;
+    top:20px;
+}
+#gender{
+    width:80%;
+    height:30px ;
+    position: relative;
+    bottom:20px;
+    padding: 30px;
+}
+#genderalign{
+    display: flex;
+}
+#inp{
+    box-shadow: none;
+}
+label{
+    font-size: 12px;
+    width:80%;
+    position: relative;
+    bottom: 20px;
+}
+#dobHeading{
+    position: absolute;
+    left:10px;
+}
+#signupbutton{
+    position: relative;
+    bottom: 10px;
+    height:30px;
+}
+#loginButton{
+    position: relative;
+    top:20px;
+    left:50px;
+}
+    </style>
+</head>
+<body>
+    <div id="login">
+        <form action="../RV/index.html">
+            <h1>SignUp</h1>
+            <p>If you already have an Account?</p>
+            <button id="loginButton">Login</button>
+    </div>
+    <div id="signup">
+    <div id="namebox">
+        <input placeholder="FirstName">
+        <input placeholder="SurName">
+        <input placeholder="Mobile Number or Email Address" class="inputBox">
+        <input placeholder="New Password" type="password" class="inputBox">
+    </div>
+    <div id="dob">
+        <h4 id="dobHeading">Date of Birth</h4>
+        <div id="selectTags">
+            <select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+            </select>
+            <select>
+               
+                    <option>Jan</option>
+                    <option>Feb</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>Sept</option>
+                    <option>Oct</option>
+                    <option>Nov</option>
+                    <option>Dec</option>
+                    </select>
+                    <select>
+               
+                        <option>1990</option>
+                        <option>1991</option>
+                        <option>1992</option>
+                        <option>1993</option>
+                        <option>1994</option>
+                        <option>1995</option>
+                        <option>1996</option>
+                        <option>1997</option>
+                        <option>1998</option>
+                        <option>1999</option>
+                        <option>2000</option>
+                        <option>2001</option>
+                        <option>2002</option>
+                        <option>2003</option>
+                        <option>2004</option>
+                        <option>2005</option>
+                        <option>2006</option>
+                        <option>2007</option>
+                        <option>2008</option>
+                        <option>2009</option>
+                        <option>2010</option>
+                        <option>2011</option>
+                        <option>2012</option>
+                        <option>2013</option>
+                        <option>2014</option>
+                        <option>2015</option>
+                        <option>2016</option>
+                        <option>2017</option>
+                        <option>2018</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                        </select>
+            
+        </div>
+    </div>
+    <div id="gender">
+    <h4>Gender:</h4>
+    <br>
+    <div id="genderalign">
+    <h4>Male</h4>
+    <input type="radio" class="ginp" name="Gender" onclick="gender('Male')">
+    <h4>Female</h4>
+    <input type="radio"  class="ginp" name="Gender" onclick="gender('female')">
+    <h4>Others</h4>
+    <input type="radio"class="ginp" name="Gender" onclick="gender('Others')">
+    </div>
+    </div>
+    <label>People who  use our service may have  uploaded your
+         contanct information to Facebook.Learn more.By clicking Sign Up,you agree to our Terms,Privacy Policy and Cookies Policy.
+         You may receive SMS notifications from us and can opt out at any time.</label>
+         <input type="submit" value="SignUp" id="signupbutton" onclick="storeTheValue()">
+         </div>
+        </form>
+        <script>
+var allInput=document.querySelectorAll("input")
+var allselectTag=document.querySelectorAll("select")
+var userGen;
+function storeTheValue()
+{
+    var firstName=allInput[0].value
+    var surName=allInput[1].value
+    var emailOrMobile=allInput[2].value
+    var pass=allInput[3].value
+    var date=allInput[0].value
+    var month=allInput[1].value
+    var year=allInput[2].value
+    localStorage.setItem("Fname",firstName);
+    localStorage.setItem("Sname",surName);
+    localStorage.setItem("E&M",emailOrMobile);
+    localStorage.setItem("pass",pass);
+    localStorage.setItem("dd",date);
+    localStorage.setItem("mm",month);
+    localStorage.setItem("yy",year);
+    sessionStorage.setItem("E&M",emailOrMobile);
+    sessionStorage.setItem("pass",pass);
+}
+function gender(gen)
+{
+    userGen=gen;
+}
+        </script>
+    
+</body>
+</html>

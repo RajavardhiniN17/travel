@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Login</title>
+ <style>
+    *{
+    padding:0px;
+    margin:0px;
+}
+body{
+    background-image: linear-gradient(75deg,#D4145A,#FBB03B);
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+}
+#outerContainer{
+    width:80%;
+    height:70vh;
+    background-image: linear-gradient(75deg,#ff6e7f,#516ebe);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px black;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+form{
+    width:95%;
+    height:70vh;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+
+}
+#innerContainer{
+    width:60%;
+    height:50vh;
+    background-color:whitesmoke;
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: 5px 5px 5px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: black;
+}
+h1{
+    color:white;
+    font-size: 40px;
+    letter-spacing: 10px;
+}
+#emailDiv,#passDiv{
+    width:60%;
+    height:40px;
+    border:3px solid royalblue;
+    border-radius: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    position: relative;
+}
+.inputTag{
+    width:100%;
+    height:100%;
+    border:none;
+    outline:none;
+    background-color: transparent;
+    text-align: center;
+    font-size: 2vw;
+    color:white;
+}
+#visibleLogo{
+    width:30px;
+    border-radius: 100%;
+    border: 2px solid royalblue;
+    position: absolute;
+    right:5px;
+}
+#loginButton{
+    width:40%;
+    height:40px;
+    border-radius: 200px;
+    border:3px solid #D4145A;
+    background-color: transparent;
+    color:#FBB03B;
+    font-size: 20vw;
+    font-weight: bold;
+    letter-spacing: 10px;
+}
+#loginButton:hover{
+    border-color:lawngreen ;
+    color: white;
+}
+#status{
+    color:red;
+}
+#account{
+    position: absolute;
+    bottom:7%;
+    color:white; 
+}
+ </style>
+<body>
+    <form>
+    <div id="outerContainer">
+        <div id="innerContainer">
+            <h1>Login</h1>
+                 <div id="emailDiv">
+                <input class="inputTag" placeholder="Enter the Email">
+            </div>
+                    <div id="passDiv">
+                    <input  class="inputTag" placeholder="Enter the Password" type="password">
+                    <img id="visibleLogo" src="../RV/Photos/closemonkeyeyes.jpg" onmousedown="visiblepassword()" 
+                    onmouseup="invisiblepassword()"></div>
+                 <h4 id="status"></h4>
+                <input   id="loginButton"type="button" value="Login" onclick="loginFun()">
+        </div>
+  </div>
+</form>
+<h4 id="account">Don't have an Account?
+<a href="./index.html">Click Here!</a></h4>
+<script>
+    var emailOrPhno=sessionStorage.getItem("E&M");
+var pass=sessionStorage.getItem("pass");
+var inputTags=document.getElementsByClassName("inputTag");
+function loginFun()
+{
+    var userGivenID=inputTags[0].value
+    var userGivenPass=inputTags[1].value
+    var formTag=document.forms
+    if( userGivenID==emailOrPhno && userGivenPass==pass)
+    {
+        document.getElementById("loginButton").type="Submit"
+        formTag[0].action="TravelBlogCode.html"
+    }
+    else if(userGivenID!=emailOrPhno && userGivenPass==pass)
+    {
+      document.getElementById("status").innerHTML="Wrong UserId"
+      document.getElementById("emailDiv").style.borderColor="red"
+      document.getElementById("passDiv").style.borderColor="royalblue"
+      document.body.style.backgroundImage="linear-gradient(75deg,#D4145A,#FBB03B)"
+    }
+    else if(userGivenID=emailOrPhno&&userGivenPass!=pass)
+    {
+        document.getElementById("status").innerHTML="Wrong Password"
+        document.getElementById("passDiv").style.borderColor="red"
+        document.getElementById("emailDiv").style.borderColor="royalblue"
+        document.body.style.backgroundImage="linear-gradient(75deg,#D4145A,red)"
+      }
+      else{
+        document.getElementById("status").innerHTML="Wrong UserId and Password"
+        document.getElementById("emailDiv").style.borderColor="red"
+        document.getElementById("passDiv").style.borderColor="red"
+        document.body.style.backgroundImage="linear-gradient(75deg,red,red)" 
+      }
+    
+}
+function visiblepassword()
+{
+    inputTags[1].type="text"
+    document.getElementById("visibleLogo").src="../RV/Photos/openmonkey.jpg"
+    document.getElementById("visibleLogo").style.transform="rotateY(180deg)"
+    document.getElementById("visibleLogo").style.transition="transform 0.2s"
+}
+function invisiblepassword()
+{
+    inputTags[1].type="text"
+    document.getElementById("visibleLogo").src="../RV/Photos/closemonkeyeyes.jpg"
+    document.getElementById("visibleLogo").style.transform="rotateY(0deg)"
+    document.getElementById("visibleLogo").style.transition="transform 0.2s"
+}
+</script>
+</body>
+</html>

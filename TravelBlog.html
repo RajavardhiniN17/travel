@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TravelBlog</title>
+    <style>
+    *{
+        padding:0px;
+        margin:0px;
+    }
+    html{
+        scroll-behavior: smooth;
+    }
+    #header{
+        width:100%;
+        height:100vh;
+        background-color: aqua;
+       background-image: url(../RV/Photos/LeftImage.png),
+       url(../RV/Photos/RightImage.png),url(../Rv/Photos/Background.png);
+       background-repeat:no-repeat;
+       background-size:95%,95%,100% 400vh;
+       background-position:left,right,0% 0%;
+       transition: background-position 0.5s,background-size 0.5s;
+       display: flex;
+       justify-content:center;
+       align-items: center;
+    }
+    #header:hover{
+        background-position: -120% 0%,180%,50%;
+        background-size: 80%,60%,100% 100vh;
+    }
+    #pageName{
+        font-size:10vw;
+        letter-spacing:2vw;
+        color:firebrick;
+        text-shadow: 5px 5px 5px black;
+        transform:scale(0) rotateX(360deg) rotateY(90deg);
+        transition:transform 1s;
+        transition-delay: 0.2s;
+    }
+    #header:hover #pageName{
+        transform:scale(1) rotateX(0deg) rotateY(0deg);
+    }
+    #navbar{
+        width:100%;
+        height:75px;
+        background-color:rgb(240, 252, 3);
+        position:relative;
+        top:0px;
+        overflow:hidden;
+        box-shadow: 0px 5px 5px black;
+    }
+    #logo{
+        width:150px;
+        position: relative;
+        bottom:40px;
+        filter:drop-shadow( 2px 2px 2px black);
+    }
+    #mainlist{
+        display: flex;
+        justify-content: space-evenly;
+        list-style: none;
+        color:#023047;
+        position:relative;
+        bottom:130px;
+        left:30px;
+    }
+    .li{
+        font-size: 20px;
+        text-transform: capitalize;
+        cursor: pointer;
+        transition: transform 0.5s,text-decoration 0.5s;
+    }
+    a{
+        text-decoration: none;
+        color:#023047;
+    }
+    a:hover{
+        color:rgb(252, 94, 3);
+    }
+    .li:hover{
+        transform: scale(1.2);
+        text-decoration: underline 2px white;
+    }
+    #home,#places,#info{
+        width:100%;
+        height:130vh;
+    
+    }
+    #home{
+        background-color:#33E9FF;
+    }
+    #places{
+        background-color:#CC90F3;
+    }
+    #info{
+        background-color: #33FFC4;
+    }
+    #imgCont{
+        width:100%;
+        height:400px;
+        position: relative;
+        top:60px;
+        z-index: 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+    .imagesinHome{
+        width:150px;
+        height:200px;
+        position: relative;
+        right:-950px;
+        margin-left:-60px;
+        top:90px;
+        border-radius: 20px;
+        box-shadow: -5px -5px 5px black;
+        transform: rotateY(25deg) skewY(-20deg);
+        transition: transform 0.5s,box-shadow 0.5s;
+    }
+    .imagesinHome:hover{
+        transform: rotateY(0deg) skewY(0deg) translate(0px,-180px) scale(1.5,1.2);
+        box-shadow: 2px 2px 5px black;
+    }
+    #guide{
+        width:300px;
+        height:250px;
+        background-color: rgba(210,210,210,0.564);
+        position: absolute;
+        left:40px;
+        border-radius: 15px;
+        box-shadow: 5px 5px 5px black;
+    }
+    #guideHeading{
+        text-align:center ;
+        padding-top:30px ;
+        letter-spacing:5px ;
+        text-shadow:1px 1px 2px black ;
+        color:#fb8500;
+    }
+    #guidePara{
+        width:250px;
+        padding: 10px;
+        padding-left: 25px;
+        text-align:justify ;
+        initial-letter: 2px;
+        font-size: 20px;
+        text-indent: 40px;
+        color:beige;
+        
+    }
+    #homepageInfo{
+        width:100%;
+        height:100vh;
+        /*background-color:white*/
+        position: relative;
+        top:120px;
+        border-top: 4px solid gainsboro;
+        display: flex;
+        justify-content: center;
+        align-items:center ;
+        row-gap: 0px;
+        column-gap: 40px;
+        flex-wrap: wrap;
+    }
+    .travelContainer{
+        width:200px;
+        height:220px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px black;
+        /* display: flex;
+       flex-wrap: wrap;
+       column-gap: 100px; */
+       justify-content: space-evenly;
+    }
+    .cointainerImage{
+        width:100%;
+        height:100%;
+        background-size:100% 250px;
+        transition: filter 0.5s;
+        border-radius: 10px;
+        column-gap: 300px;
+        justify-content:center;
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        /* position: relative; */
+        
+    }
+    .travelContainer:hover .cointainerImage{
+        filter:blur(10px);
+    }
+    .travelText{
+        position: relative;
+        bottom:140px;
+        left:10px;
+        font-size: 5vw;
+        /* text-decoration: center; */
+        letter-spacing: 7px;
+        color: transparent;
+        transition: color 0.5s;
+    }
+    .travelContainer:hover .travelText{
+        color:white;
+    }
+    #walk{
+        background-image:url(../RV/Photos/Walk.jpg
+        );
+    }
+    #bus{
+       background-image:url(../RV/Photos/Bus.jpg);
+    }
+    #car{
+        background-image:url(../RV/Photos/Car.jpg);
+    }
+    #bike{
+      background-image: url(../RV/Photos/bike.jpg);
+    }
+    #cycle{
+        background-image: url(../RV/Photos/cycle.jpg);
+    }
+    
+    #flight{
+        background-image: url(../RV/Photos/Flight.jpg);
+    } 
+    .placeContainer{
+        width:250px;
+        height: 300px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 5px 5px 5px black;
+        position: relative;
+        transition: all 0.5s;
+        cursor: pointer;
+        
+    } 
+    #places{
+        justify-content:space-evenly;
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;  
+    }
+    .PlaceName{
+        font-size: 35px;
+        letter-spacing: 5px;
+        color:none;
+        border: 5px 5px 5px black;
+        position: absolute;
+        z-index: 1;
+    }
+    .brightnessCont{
+        background-size: 100% 300px;
+        filter: brightness(40%);
+        width:100%;
+        height: 300px;
+        position: absolute;
+        border-radius: 10px;
+        top:0px;
+    }
+    #BudhaAp{
+        background-image:url(../RV/Photos/BudhaAp.jpg);
+    
+    }
+    #Beaches{
+        background-image: url(../RV/Photos/Beach.jpg);
+    
+    }
+    #Chairminar{
+        background-image: url(../RV/Photos/Charminar.jpg);
+    
+    }
+       #Palace{
+    background-image: url(../RV/Photos/MysorePalace.jpg);
+    }
+       #IsckonTemple{
+        background-image: url(../RV/Photos/IsckonBnglore.jpg);
+    
+    }
+    #divcontainer{
+        background-color: aqua;
+        width:50%;
+        height:550px;
+        position: relative;
+        left:450px;
+        top:100px;
+    }
+    #x{
+        padding-left: 300px;
+        padding-top: 50px;
+    }
+    .a{
+        width:450px;
+        height:40px;
+        margin-left: 200px;
+        margin-top: 30px;
+    }
+    #y{
+        width:450px;
+        height:150px;
+        background-color:whitesmoke;
+        margin-left: 200px;
+        margin-top: 30px;
+    }
+    #z{
+        width:80px;
+        height:40px;
+        color:black;
+        margin-left: 300px;
+        margin-top: 30px;
+        background-color: transparent;
+        border:1px white solid;   
+    }
+    #container{
+        width:500px;
+        height:500px;
+        color:black;
+        background-color: transparent;
+        bottom: 400px;
+        position: relative;
+        left:100px;
+        display:flex ;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-content: space-evenly;
+    }
+    .b{
+        width:200px;
+        height:200px;
+        background-color:whitesmoke;
+    }
+    .g{
+        width:200px;
+        height:200px;
+       position: relative;
+       left:70px;
+       top:5px;
+    }
+    .k{
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+    .i{
+        text-align: justify;
+        margin-top: 10px;
+        margin-left: 40px;
+    }
+    #m{
+        margin-left: 80px;
+    }
+    #n{
+        margin-left: 70px;
+    }
+</style>
+</head>
+<body>
+    <div id="header">
+        <h1 id="pageName"><i>Travel Blog</i></h1>
+    </div>
+    <div id="navbar">
+        <img  id="logo"src="../RV/Photos/Logo1.png">
+        <ul id="mainlist">
+            <li class="li"><a href="#home">Home</a></li>
+            <li class="li"><a href="#places">Places</a></li>
+            <li class="li"><a href="#info">Info</a></li>
+            <li class="li"><a href="#">Logout</a></li>
+        </ul>
+    </div>
+    <div id="body of the page">
+        <div id="home">
+            <div id="imageCont">
+                <div id="guide">
+                    <h1 id="guideHeading">Trip Planner</h1>
+                    <p id="guidePara"> Most visited places in India,With beautiful Mouments,
+                        Beaches,People and culuture and you can take look of it.</p>
+                </div>
+                <a href="#"><img class="imagesinHome" src="../RV/Photos/BudhaAp.jpg"></a>
+                <a href="#"><img class="imagesinHome" src="../RV/Photos/BudhaHyd.png"></a>
+                <a href="#"><img class="imagesinHome" src="../RV/Photos/Charminar.jpg"></a>
+                <a href="#"><img class="imagesinHome" src="../RV/Photos/MysorePalace.jpg"></a>
+                <a href="#"><img class="imagesinHome" src="../RV/Photos/IsckonBnglore.jpg"></a>
+            </div>
+            <div id="homepageInfo">
+                <div class="travelContainer">
+                    <div class="cointainerImage" id="walk"></div>
+                    <a href="https://en.wikipedia.org/wiki/Walking"target="_blank">
+                        <h1 class="travelText">Walk</h1></a>
+                </div>
+                <div class="travelContainer">
+                    <div class="cointainerImage" id="bus"></div>
+                    <a href="https://en.wikipedia.org/wiki/Bus"target="_blank">
+                        <h1 class="travelText">Bus</h1></a>
+                </div>
+                <div class="travelContainer">
+                    <div class="cointainerImage" id="car"></div>
+                    <a href="https://en.wikipedia.org/wiki/Car"target="_blank">
+                        <h1 class="travelText">Car</h1></a>
+                </div>
+                <div class="travelContainer">
+                    <div class="cointainerImage" id="bike"></div>
+                    <a href="https://en.wikipedia.org/wiki/Motorcycle"target="_blank">
+                        <h1 class="travelText">Bike</h1></a>
+                </div>
+                <div class="travelContainer">
+                    <div class="cointainerImage" id="cycle"></div>
+                    <a href="https://en.wikipedia.org/wiki/Bicycle"target="_blank">
+                        <h1 class="travelText">cycle</h1></a>
+                </div>
+                <div class="travelContainer">
+                    <div class="cointainerImage" id="flight"></div>
+                    <a href="https://en.wikipedia.org/wiki/Flight"target="_blank">
+                        <h1 class="travelText">Flight</h1></a>
+                    </div>
+            </div>
+        </div>
+        <div id="places">
+            <div class="placeContainer">
+    <div class="brightnessCont"id="BudhaAp"></div>
+    <h1 class="PlaceName"><a>AndhraPradesh</a></h1>
+            </div>
+            <div class="placeContainer">
+  <div class="brightnessCont"id="Beaches"></div>
+ <h1 class="PlaceName"><a>Chennai</a></h1>
+     </div>
+  <div class="placeContainer">
+      <div class="brightnessCont"id="Chairminar"></div>
+     <h1 class="PlaceName"><a>Telanga</a></h1>
+        </div>
+    <div class="placeContainer">
+    <div class="brightnessCont"id="Palace"></div>
+        <h1 class="PlaceName"><a>Mysore</a></h1>
+       
+      </div>
+     <div class="placeContainer">
+     <div class="brightnessCont"id="IsckonTemple"></div>
+    <h1 class="PlaceName"><a>Bangalore</a></h1>      
+    </div>
+        </div>
+        <div id="info">
+            <div id="divcontainer">
+                <h1 id="x">Contact Us</h1>
+                <input class="a"placeholder="Enter your name">
+                <input class="a"placeholder="Enter a valid E-mail Address">
+                <div id="y"></div>
+                <input id="z" type="button"value="submit"></div>
+                <div id="container">
+                    <div class="b">
+                        <img style=" width:100px; height:100px;" src="../RV/Photos/Map.jpg" class="g">
+                        <h4 class="k">OUR MAIN OFFICE</h4>
+                        <p class="i">Sotto <br>94 BroadWay Swedney<br>
+                        NEWYORK NY-100</p>
+                    </div>
+                    <div class="b">
+                        <img style=" width:100px; height:100px;"  src="../RV/Photos/call.jpg" class="g">
+                        <h4 class="k">PHONE NUMBER</h4>
+                        <p class="i">234-9876-5400<br>888-0123-4567<br>(toll-free)</p>
+                    </div>
+                    <div class="b">
+                        <img style=" width:100px; height:100px;" src="../RV/Photos/Email.jpg" class="g">
+                        <h4 class="k" id="m">E-Mail</h4>
+                       <p class="i"><a href="#">hello@theme.com</a></p>
+                    </div>
+                    <div class="b">
+                        <img style=" width:100px; height:100px;" src="../RV/Photos/fax.jpg" class="g">
+                        <h4 class="k"id ="n">FAx</h4>
+                        <p class="i">1-234-567-8901</p>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+</body>
+</html>
